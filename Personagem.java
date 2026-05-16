@@ -26,5 +26,11 @@ public abstract class Personagem {
     }
 
     public abstract void usarHabilidadeEspecial();
+
+    //Getters
+    public String getNome(){return this.nome;}
+    public String getClasse(){return this.classe;}
+    public int getNivel(){return this.nivel;}
+    public double getPoderBase(){return this.poderBase;}
 }
 

@@ -8,6 +8,6 @@ public class Mago extends Personagem {
 
     @Override
     public void usarHabilidadeEspecial(){
-        System.out.println(this.nome + " atacou com Bola de fogo e causou "+ this.inteligencia + " de dano.");
+        System.out.println("O Mago " + getNome() + " conjura uma Nevasca Arcana!");
     }
 }

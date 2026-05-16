@@ -1,30 +1,35 @@
-import java.util.List;
-import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) {
-        Gerreiro garen = new Gerreiro("Garen", 1, 100, 10, 49.5);
-        Mago merlin = new Mago("Merlin", 1, 50, 25, 55);
+        // 1. Criando os dois grupos distintos
+        Grupo defensores = new Grupo("Defensores de Eldoria");
+        Grupo invasores = new Grupo("Invasores do Caos");
 
-        garen.exibirStatus();
-        garen.usarHabilidadeEspecial();
+        // 2. Criando os múltiplos personagens
+        Personagem heroi1 = new Guerreiro("Arthus", 6, 120, 15.0, 30);
+        Personagem heroi2 = new Mago("Elenara", 8, 70, 37.5,30 ); // 8 * 37.5 = 300 de poder
 
-        merlin.exibirStatus();
-        merlin.usarHabilidadeEspecial();
+        Personagem vilao1 = new Guerreiro("Malakar", 7, 130, 14.0, 0);
+        Personagem vilao2 = new Mago("Gorgoroth", 5, 65, 30.0, 0);
 
-        System.out.println("\n--- Demonstração de Polimerfismo ---");
+        // 3. Adicionando-os aos seus respectivos grupos
+        defensores.adicionarMembro(heroi1);
+        defensores.adicionarMembro(heroi2);
 
-        List<Personagem> herois = new ArrayList<>();
+        invasores.adicionarMembro(vilao1);
+        invasores.adicionarMembro(vilao2);
 
-        herois.add(garen);
-        herois.add(merlin);
-        herois.add(new Gerreiro("Goku", 1000, 50000000, 1000000, 560000000));
+        // 4. Listando os personagens de cada grupo
+        defensores.listarMembros();
+        invasores.listarMembros();
 
-        for(Personagem p : herois){
-            p.exibirStatus();
-            p.usarHabilidadeEspecial();
-            System.out.println("----------------------------------------------------------");
-        }
+        // 5. Realizando batalhas e exibindo os resultados
+        // Pegamos os personagens de dentro dos grupos para o duelo usando o método auxiliar
+        Personagem combatenteA = defensores.getMembros().get(1); // Elenara
+        Personagem combatenteB = invasores.getMembros().get(1);  // Gorgoroth
+
+        defensores.batalhar(combatenteA, combatenteB);
 
     }
 }
